@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { withAmp } from 'next/amp';
 
-export default class HomePage extends Component {
+class HomePage extends Component {
   render() {
     return (
       <div>
@@ -13,3 +14,5 @@ export default class HomePage extends Component {
     )
   }
 }
+
+export default withAmp(HomePage);

@@ -4,7 +4,7 @@ const path = require('path')
 const { parse } = require('url')
 const pathMatch = require('path-match')
 
-const dev = true
+const dev = false
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const server = express()
@@ -15,7 +15,12 @@ app.prepare().then(() => {
   server.use('/_next', express.static(path.join(__dirname, '.next')));
 
   server.get('/dog-sounds/:sound', (req, res) => {
-    const params = route('/dog-sounds/:sound')(parse(req.url).pathname)
+    const params = route(`/dog-sounds/:sound`)(parse(req.url).pathname)
+    
+    if (parse(req.url).query && parse(req.url).query.includes('amp')) {
+        params.amp = 1
+    }
+
     return app.render(req, res, '/dog-sounds/_sound', params);
   })
 
