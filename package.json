@@ -1,0 +1,22 @@
+{
+  "name": "next-amp-bug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "rm -rf .next && next build && sls deploy",
+    "start": "next build && NODE_ENV=production node server.js",
+    "dev": "next build && NODE_ENV=local node server.js && next dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "next": "^8.1.1-canary.16",
+    "path-match": "^1.2.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
